@@ -35,7 +35,7 @@ async function start(path, folder) {
 	return new Promise(function(resolve, reject) {
 		gulp.task('minifyJs', function() {
 			console.log(path)
-			return gulp.src([`!${path}/**/*.min.js`, `!${path}/**/mui.*.js`, `!${path}/**/*edtap*.js`, `${path}/**/*.js`])
+			return gulp.src([`!${path}/**/*.min.js`, `!${path}/**/mui.*.js`, `!${path}/**/*edtap*.js`, `!${path}/**/yjyInit.js`, `!${path}/**/ajaxfileupload.js`, `!${path}/**/calRem.js`, `${path}/**/*.js`])
 				.pipe(rev())
 				.pipe(gulp.dest(`dist/${folder}`))
 				.pipe(rev.manifest({
@@ -45,7 +45,7 @@ async function start(path, folder) {
 		})
 
 		gulp.task('minifyJs-extra', function() {
-			return gulp.src([`${path}/**/*.min.js`, `${path}/**/mui.*.js`, `${path}/**/*edtap*.js`])
+			return gulp.src([`*://review-formal.iplusmed.com/Common/**/*.js` ,`${path}/**/*.min.js`, `${path}/**/mui.*.js`, `${path}/**/*edtap*.js`, `${path}/**/yjyInit.js`, `${path}/**/calRem.js`, `${path}/**/ajaxfileupload.js`])
 				.pipe(gulp.dest(`dist/${folder}`))
 		})
 
@@ -60,7 +60,7 @@ async function start(path, folder) {
 		})
 
 		gulp.task('css-extra', function() {
-			return gulp.src([`${path}/**/reset.css`, `${path}/**/*.min.css`, `${path}/**/mui.*.css`])
+			return gulp.src([`*://review-formal.iplusmed.com/Common/**/*.css`, `${path}/**/reset.css`, `${path}/**/*.min.css`, `${path}/**/mui.*.css`])
 				.pipe(gulp.dest(`dist/${folder}`))
 		})
 
